@@ -13,9 +13,15 @@ OPPONENT_ROCK = "A"
 OPPONENT_PAPER = "B"
 OPPONENT_SCISSORS = "C"
 
+# PART 1
 MY_ROCK = "X"
 MY_PAPER = "Y"
 MY_SCISSORS = "Z"
+
+# PART 2
+NEEDS_TO_LOSE = "X"
+NEEDS_TO_DRAW = "Y"
+NEEDS_TO_WIN = "Z"
 
 class Move
     attr_reader :opponent_move
@@ -29,8 +35,11 @@ class Move
     def pretty_print
         puts "Your opponent played #{@opponent_move}"
         puts "You should play #{@my_suggested_move}"
-        puts "Score: #{outcome}"
+        puts "Score (part 1): #{outcome}"
+        puts "Score (part 2): #{outcome_part_2}"
     end
+
+
 
     def outcome
         # Draw
@@ -59,6 +68,41 @@ class Move
                 return OUTCOME_WON + points_for_playing_a_specific_hand
             else
                 return OUTCOME_LOST + points_for_playing_a_specific_hand
+            end
+        end
+    end
+
+    def outcome_part_2
+        # Draw
+        if my_suggested_move == NEEDS_TO_DRAW
+            if opponent_move == OPPONENT_ROCK
+                return OUTCOME_DRAW + PLAY_ROCK_SCORE
+            elsif opponent_move == OPPONENT_PAPER
+                return OUTCOME_DRAW + PLAY_PAPER_SCORE
+            elsif opponent_move == OPPONENT_SCISSORS
+                return OUTCOME_DRAW + PLAY_SCISSORS_SCORE
+            end
+        end
+
+        # Lose
+        if my_suggested_move == NEEDS_TO_LOSE
+            if opponent_move == OPPONENT_ROCK
+                return OUTCOME_LOST + PLAY_SCISSORS_SCORE
+            elsif opponent_move == OPPONENT_PAPER
+                return OUTCOME_LOST + PLAY_ROCK_SCORE
+            elsif opponent_move == OPPONENT_SCISSORS
+                return OUTCOME_LOST + PLAY_PAPER_SCORE
+            end
+        end
+
+        # Win
+        if my_suggested_move == NEEDS_TO_WIN
+            if opponent_move == OPPONENT_ROCK
+                return OUTCOME_WON + PLAY_PAPER_SCORE
+            elsif opponent_move == OPPONENT_PAPER
+                return OUTCOME_WON + PLAY_SCISSORS_SCORE
+            elsif opponent_move == OPPONENT_SCISSORS
+                return OUTCOME_WON + PLAY_ROCK_SCORE
             end
         end
     end
@@ -101,3 +145,6 @@ end
 # Sum all the moves
 puts "Part 01:"
 puts moves.reduce(0) { |sum, move| sum + move.outcome }
+
+puts "Part 02:"
+puts moves.reduce(0) { |sum, move| sum + move.outcome_part_2 }
