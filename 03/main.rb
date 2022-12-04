@@ -80,10 +80,8 @@ end
 
 puts "Part one score: #{score}"
 
-
 # Group rucksacks into groups of 3
 rucksacks_by_group = rucksacks.each_slice(3).to_a
-
 
 part2 = 0
 for groups in rucksacks_by_group
