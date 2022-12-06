@@ -3,7 +3,7 @@
 # Input file
 FILENAME='input.txt' # example.txt
 # Hardcode number of stacks to avoid parsing that information out.
-NUMBER_OF_STACKS = 9
+NUMBER_OF_STACKS = 9 # 3
 
 class Shipyard
     def initialize
@@ -40,9 +40,20 @@ class Shipyard
         for i in 1..number_to_move.to_i
             popped = @stack[from].delete_at(0)
             puts "popped #{popped} from idx=#{from}"
+            @stack[to].unshift(popped) #
+        end
+    end
+
+    def move_ship_with_cratemover_9001(number_to_move, from, to)
+        puts "move #{number_to_move} from idx=#{from} to idx=#{to}"
+
+        for i in 1..number_to_move.to_i
+            popped = @stack[from].delete_at(number_to_move.to_i - i)
+            puts "popped #{popped} from idx=#{from}"
             @stack[to].unshift(popped)
         end
     end
+
 
     def get_top_of_stacks
         for i in 0..NUMBER_OF_STACKS
@@ -74,7 +85,7 @@ File.readlines(FILENAME).each_with_index  do  |line, i|
     end
 end
 
-# shipyard.pretty_print
+shipyard.pretty_print
 
 # Parse the rules
 File.readlines(FILENAME).each_with_index  do  |line, i|
@@ -89,9 +100,13 @@ File.readlines(FILENAME).each_with_index  do  |line, i|
     from = parsed[2].to_i - 1
     to = parsed[3].to_i - 1
 
-    shipyard.move_ship(number_to_move, from, to)
+    # -- Part 1
+    # shipyard.move_ship(number_to_move, from, to)
+
+    # -- Part 2
+    shipyard.move_ship_with_cratemover_9001(number_to_move, from, to)
 end
 
-# shipyard.pretty_print
+shipyard.pretty_print
 
 shipyard.get_top_of_stacks
