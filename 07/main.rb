@@ -91,3 +91,33 @@ puts;puts part1
 
 
 # Part 2
+
+total_utilized_space = root_node.each.reduce(0) { |sum, child| sum + child.content.to_i }
+puts;puts "Total used space: #{total_utilized_space} bytes"
+
+total_un_used_space = 70_000_000 - total_utilized_space
+puts "Total unused space: #{total_un_used_space} bytes"
+
+must_delete_smallest_dir_of_at_least_this_size = 30_000_000 - total_un_used_space
+puts "Must delete smallest directory of at least #{must_delete_smallest_dir_of_at_least_this_size} bytes"
+
+smallest_dir_that_fits_criteria_size = 0
+smallest_dir_that_fits_criteria_node = nil
+
+root_node.each { |node|
+  if ! node.is_leaf?
+    size = node.each.reduce(0) { |sum, child| sum + child.content.to_i }
+    puts "#{node.name} (#{size} bytes)"
+    
+    # If it fits the criteria at all
+    if size >= must_delete_smallest_dir_of_at_least_this_size
+      if size < smallest_dir_that_fits_criteria_size || smallest_dir_that_fits_criteria_size == 0
+        smallest_dir_that_fits_criteria_size = size
+        smallest_dir_that_fits_criteria_node = node
+      end
+    end
+  end
+}
+
+puts "part 2: "
+puts smallest_dir_that_fits_criteria_size
