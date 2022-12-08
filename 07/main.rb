@@ -15,7 +15,6 @@ file_regex = /(\d+) (.*)/
 
 input_file = File.new(FILENAME, "r")
 
-all_directories = [root_node]
 current_node = nil
 
 input_file.each { |line|
@@ -60,9 +59,6 @@ input_file.each { |line|
 
     new_node = Tree::TreeNode.new(directory_name, "0")
     current_node << new_node
-
-    # Store a pointer to the top of this directory for computation later.
-    all_directories << new_node
   end
 
   if file_regex.match(line)
@@ -81,12 +77,17 @@ root_node.print_tree(root_node.node_depth, nil, lambda { |node, prefix| puts "#{
 # Part 1
 # Compute the total size of each directory
 part1 = 0
-all_directories.each { |node|
+root_node.each { |node|
+  if ! node.is_leaf?
     size = node.each.reduce(0) { |sum, child| sum + child.content.to_i }
     puts "#{node.name} (#{size} bytes)"
     if size < 100000
       part1 = part1 + size
     end
+  end
 }
 
 puts;puts part1
+
+
+# Part 2
