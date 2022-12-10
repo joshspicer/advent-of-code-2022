@@ -7,6 +7,7 @@ DAY="$1"
 mkdir $DAY
 cd $DAY
 touch main.rb README.md example.txt input.txt
+chmod +x main.rb
 
 tee main.rb > /dev/null \
 << EOF
