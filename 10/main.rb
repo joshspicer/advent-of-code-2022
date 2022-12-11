@@ -1,61 +1,50 @@
 #!/usr/bin/env ruby
 
 # Input file
-FILENAME='example_large.txt'  # example.txt
+FILENAME='input.txt'  # example.txt
 
-class Instruction
-    attr_reader :type, :value
-
-    # Internal representation of a 'no-op' during 
-    # 'end_cycle' instruction application.
-    # Not to be confused with a 'noop' instruction
-    def self.create_skip
-        return Instruction.new('SKIP_SENTINEL', nil)
-    end
-
-    def initialize(type, value)
-        @type = type
-        @value = value
-    end
-end
+DEBUG = false
 
 class CPU
-    attr_reader :X, :cycle
+    attr_reader :total_signal_strength
 
     def initialize
         # Registers
         @X = 1
         @cycle = 0
 
-        @buffered_instructions = [] # Queue
+        # Part 01
+        @total_signal_strength = 0
     end
 
     def run(instruction, value)
+        # Start the cycle
+        increment_cycle
+
+        # Process current instruction
         case instruction
         when 'noop'
             # do nothing.
         when 'addx'
-            instruction = Instruction.new('addx', value.to_i)
-            @buffered_instructions << Instruction.create_skip << instruction
+            value_to_add = value.to_i
+            increment_cycle
+            @X += value_to_add
         end
     end
 
-    def start_cycle
+    def increment_cycle
         @cycle += 1
+        record_signal_strength_if_interesting_cycle
     end
 
-    def end_cycle
-        if @buffered_instructions.empty?
-            return
-        end
+    def record_signal_strength_if_interesting_cycle
+        # Print interesting cycles
+        if @cycle == 20 || (@cycle + 20) % 40 == 0
+            print_registers if DEBUG
 
-        # Execute the head of the queue
-        # Will automatically skip the 'SKIP_SENTINEL' instruction, used an implementation detail for addX
-        instruction_to_process = @buffered_instructions.shift
+            # Record signal strength
+            @total_signal_strength += (@cycle * @X)
 
-        case instruction_to_process.type
-        when 'addx'
-            @X += instruction_to_process.value
         end
     end
 
@@ -81,19 +70,6 @@ input_file.each_line do |line|
     end
 
     # -- Execute instruction
-
-    # Indicate start of the clock cycle
-    cpu.start_cycle
-
-    # Interesting cycles
-    if cpu.cycle == 20 || (cpu.cycle + 20) % 40 == 0
-        cpu.print_registers
-    end
-
-
     cpu.run(instr, value)
-
-    # End of clock cycle
-    cpu.end_cycle
 end
-
+puts "Part 01:  #{cpu.total_signal_strength}"
