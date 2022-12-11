@@ -4,7 +4,6 @@ require 'set'
 
 # Input file
 FILENAME='input.txt'  # example.txt
-input_file = File.new(FILENAME, "r")
 
 class Knot
     attr_accessor :x, :y
@@ -127,6 +126,8 @@ end
 head = Knot.new
 tail = Knot.new
 
+input_file = File.new(FILENAME, "r")
+
 input_file.each_line do |line|
 
     instru = line.split(' ')
@@ -137,24 +138,58 @@ input_file.each_line do |line|
         case direction
         when 'R'
             head.move_right
-            update_tail(head, tail)  # Corrects the location of the tail
         when 'L'
             head.move_left
-            update_tail(head, tail)
         when 'U'
             head.move_up
-            update_tail(head, tail)
         when 'D' 
             head.move_down
-            update_tail(head, tail)
         end
 
+        update_tail(head, tail)  # Corrects the location of the tail
+
         # puts "#{direction}: Head moved to   #{head.pretty_print}"
-        puts "#{direction}: Tail is at   #{tail.pretty_print}"
+        # puts "#{direction}: Tail is at   #{tail.pretty_print}"
     end
 end
 
 # Part 1
 # See how many distinct locations the the tails knot has visited
-puts "Part 1: #{tail.path.size}"
+puts "Part 1: #{tail.path.size}";puts
 # puts tail.path
+
+
+# ----------------------------------------------
+
+# Part 2
+# [Head(0), Tail(1), ... Tail(N), ... Tail(9)]
+knots = Array.new(10) { Knot.new }
+head = knots[0]
+
+input_file = File.new(FILENAME, "r")
+input_file.each_line do |line|
+    
+    instru = line.split(' ')
+    direction = instru[0]
+    count     = instru[1].to_i
+
+    for i in 1..count
+        case direction
+        when 'R'
+            head.move_right
+        when 'L'
+            head.move_left
+        when 'U'
+            head.move_up
+        when 'D' 
+            head.move_down
+        end
+
+        # Update the tails with the location of the previous knot
+        for i in 1..knots.size-1
+            update_tail(knots[i-1], knots[i])
+        end
+    end
+end
+
+puts "Part 2: #{knots[9].path.size}";puts
