@@ -158,7 +158,6 @@ end
 puts "Part 1: #{tail.path.size}";puts
 # puts tail.path
 
-
 # ----------------------------------------------
 
 # Part 2
