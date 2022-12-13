@@ -8,17 +8,19 @@ end
 
 arg = ARGV[0]
 
+IS_PART_2 = true
+ROUNDS = 20 # 10_000
+
 if arg == 'example'
     # Example
     FILENAME='example.txt' 
     NUM_MONKEYS=4
-    ROUNDS = 20
     DEBUG = true
+
 elsif arg == 'input'
     # Input
     FILENAME='input.txt' 
     NUM_MONKEYS=8
-    ROUNDS = 20
     DEBUG = false
 else
     puts "Unknown argument: '#{arg}'"
@@ -173,8 +175,10 @@ for round in 1..ROUNDS
             worry_level = monkey.operation.apply(item)
 
             # Divide by 3 and floor
-            worry_level = worry_level / 3
-            puts "    Monkey gets bored with item. Worry level is divided by 3 to #{worry_level}" if DEBUG
+            if ! IS_PART_2
+                worry_level = worry_level / 3
+                puts "    Monkey gets bored with item. Worry level is divided by 3 to #{worry_level}" if DEBUG
+            end
 
             # Test worry level
             throw_to_monkey_number = monkey.test_func.test(worry_level)
