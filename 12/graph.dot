@@ -1,0 +1,541 @@
+digraph RGL__DirectedAdjacencyGraph {
+    S [
+        fontsize = 8,
+        label = S
+    ]
+
+    a_1_0 [
+        fontsize = 8,
+        label = a_1_0
+    ]
+
+    a_0_1 [
+        fontsize = 8,
+        label = a_0_1
+    ]
+
+    b_1_1 [
+        fontsize = 8,
+        label = b_1_1
+    ]
+
+    b_0_2 [
+        fontsize = 8,
+        label = b_0_2
+    ]
+
+    c_1_2 [
+        fontsize = 8,
+        label = c_1_2
+    ]
+
+    q_0_3 [
+        fontsize = 8,
+        label = q_0_3
+    ]
+
+    r_1_3 [
+        fontsize = 8,
+        label = r_1_3
+    ]
+
+    p_0_4 [
+        fontsize = 8,
+        label = p_0_4
+    ]
+
+    o_0_5 [
+        fontsize = 8,
+        label = o_0_5
+    ]
+
+    n_0_6 [
+        fontsize = 8,
+        label = n_0_6
+    ]
+
+    m_0_7 [
+        fontsize = 8,
+        label = m_0_7
+    ]
+
+    l_1_7 [
+        fontsize = 8,
+        label = l_1_7
+    ]
+
+    a_2_0 [
+        fontsize = 8,
+        label = a_2_0
+    ]
+
+    c_2_1 [
+        fontsize = 8,
+        label = c_2_1
+    ]
+
+    c_2_2 [
+        fontsize = 8,
+        label = c_2_2
+    ]
+
+    s_2_3 [
+        fontsize = 8,
+        label = s_2_3
+    ]
+
+    y_1_4 [
+        fontsize = 8,
+        label = y_1_4
+    ]
+
+    z_2_4 [
+        fontsize = 8,
+        label = z_2_4
+    ]
+
+    x_1_5 [
+        fontsize = 8,
+        label = x_1_5
+    ]
+
+    x_1_6 [
+        fontsize = 8,
+        label = x_1_6
+    ]
+
+    x_2_6 [
+        fontsize = 8,
+        label = x_2_6
+    ]
+
+    k_2_7 [
+        fontsize = 8,
+        label = k_2_7
+    ]
+
+    a_3_0 [
+        fontsize = 8,
+        label = a_3_0
+    ]
+
+    c_3_1 [
+        fontsize = 8,
+        label = c_3_1
+    ]
+
+    c_3_2 [
+        fontsize = 8,
+        label = c_3_2
+    ]
+
+    t_3_3 [
+        fontsize = 8,
+        label = t_3_3
+    ]
+
+    E [
+        fontsize = 8,
+        label = E
+    ]
+
+    w_3_6 [
+        fontsize = 8,
+        label = w_3_6
+    ]
+
+    j_3_7 [
+        fontsize = 8,
+        label = j_3_7
+    ]
+
+    a_4_0 [
+        fontsize = 8,
+        label = a_4_0
+    ]
+
+    b_4_1 [
+        fontsize = 8,
+        label = b_4_1
+    ]
+
+    d_4_2 [
+        fontsize = 8,
+        label = d_4_2
+    ]
+
+    u_3_4 [
+        fontsize = 8,
+        label = u_3_4
+    ]
+
+    v_3_5 [
+        fontsize = 8,
+        label = v_3_5
+    ]
+
+    i_4_7 [
+        fontsize = 8,
+        label = i_4_7
+    ]
+
+    e_4_3 [
+        fontsize = 8,
+        label = e_4_3
+    ]
+
+    f_4_4 [
+        fontsize = 8,
+        label = f_4_4
+    ]
+
+    g_4_5 [
+        fontsize = 8,
+        label = g_4_5
+    ]
+
+    h_4_6 [
+        fontsize = 8,
+        label = h_4_6
+    ]
+
+    S -> a_1_0 [
+        fontsize = 8
+    ]
+
+    S -> a_0_1 [
+        fontsize = 8
+    ]
+
+    a_1_0 -> a_2_0 [
+        fontsize = 8
+    ]
+
+    a_1_0 -> b_1_1 [
+        fontsize = 8
+    ]
+
+    a_0_1 -> b_1_1 [
+        fontsize = 8
+    ]
+
+    a_0_1 -> b_0_2 [
+        fontsize = 8
+    ]
+
+    b_1_1 -> a_0_1 [
+        fontsize = 8
+    ]
+
+    b_1_1 -> c_2_1 [
+        fontsize = 8
+    ]
+
+    b_1_1 -> a_1_0 [
+        fontsize = 8
+    ]
+
+    b_1_1 -> c_1_2 [
+        fontsize = 8
+    ]
+
+    b_0_2 -> c_1_2 [
+        fontsize = 8
+    ]
+
+    b_0_2 -> a_0_1 [
+        fontsize = 8
+    ]
+
+    c_1_2 -> b_0_2 [
+        fontsize = 8
+    ]
+
+    c_1_2 -> c_2_2 [
+        fontsize = 8
+    ]
+
+    c_1_2 -> b_1_1 [
+        fontsize = 8
+    ]
+
+    q_0_3 -> r_1_3 [
+        fontsize = 8
+    ]
+
+    q_0_3 -> p_0_4 [
+        fontsize = 8
+    ]
+
+    r_1_3 -> q_0_3 [
+        fontsize = 8
+    ]
+
+    r_1_3 -> s_2_3 [
+        fontsize = 8
+    ]
+
+    p_0_4 -> q_0_3 [
+        fontsize = 8
+    ]
+
+    p_0_4 -> o_0_5 [
+        fontsize = 8
+    ]
+
+    o_0_5 -> p_0_4 [
+        fontsize = 8
+    ]
+
+    o_0_5 -> n_0_6 [
+        fontsize = 8
+    ]
+
+    n_0_6 -> o_0_5 [
+        fontsize = 8
+    ]
+
+    n_0_6 -> m_0_7 [
+        fontsize = 8
+    ]
+
+    m_0_7 -> l_1_7 [
+        fontsize = 8
+    ]
+
+    m_0_7 -> n_0_6 [
+        fontsize = 8
+    ]
+
+    l_1_7 -> m_0_7 [
+        fontsize = 8
+    ]
+
+    l_1_7 -> k_2_7 [
+        fontsize = 8
+    ]
+
+    a_2_0 -> a_1_0 [
+        fontsize = 8
+    ]
+
+    a_2_0 -> a_3_0 [
+        fontsize = 8
+    ]
+
+    c_2_1 -> b_1_1 [
+        fontsize = 8
+    ]
+
+    c_2_1 -> c_3_1 [
+        fontsize = 8
+    ]
+
+    c_2_1 -> c_2_2 [
+        fontsize = 8
+    ]
+
+    c_2_2 -> c_1_2 [
+        fontsize = 8
+    ]
+
+    c_2_2 -> c_3_2 [
+        fontsize = 8
+    ]
+
+    c_2_2 -> c_2_1 [
+        fontsize = 8
+    ]
+
+    s_2_3 -> r_1_3 [
+        fontsize = 8
+    ]
+
+    s_2_3 -> t_3_3 [
+        fontsize = 8
+    ]
+
+    y_1_4 -> z_2_4 [
+        fontsize = 8
+    ]
+
+    y_1_4 -> x_1_5 [
+        fontsize = 8
+    ]
+
+    z_2_4 -> y_1_4 [
+        fontsize = 8
+    ]
+
+    z_2_4 -> E [
+        fontsize = 8
+    ]
+
+    x_1_5 -> y_1_4 [
+        fontsize = 8
+    ]
+
+    x_1_5 -> x_1_6 [
+        fontsize = 8
+    ]
+
+    x_1_6 -> x_2_6 [
+        fontsize = 8
+    ]
+
+    x_1_6 -> x_1_5 [
+        fontsize = 8
+    ]
+
+    x_2_6 -> x_1_6 [
+        fontsize = 8
+    ]
+
+    x_2_6 -> w_3_6 [
+        fontsize = 8
+    ]
+
+    k_2_7 -> l_1_7 [
+        fontsize = 8
+    ]
+
+    k_2_7 -> j_3_7 [
+        fontsize = 8
+    ]
+
+    a_3_0 -> a_2_0 [
+        fontsize = 8
+    ]
+
+    a_3_0 -> a_4_0 [
+        fontsize = 8
+    ]
+
+    c_3_1 -> c_2_1 [
+        fontsize = 8
+    ]
+
+    c_3_1 -> b_4_1 [
+        fontsize = 8
+    ]
+
+    c_3_1 -> c_3_2 [
+        fontsize = 8
+    ]
+
+    c_3_2 -> c_2_2 [
+        fontsize = 8
+    ]
+
+    c_3_2 -> d_4_2 [
+        fontsize = 8
+    ]
+
+    c_3_2 -> c_3_1 [
+        fontsize = 8
+    ]
+
+    t_3_3 -> s_2_3 [
+        fontsize = 8
+    ]
+
+    t_3_3 -> u_3_4 [
+        fontsize = 8
+    ]
+
+    w_3_6 -> x_2_6 [
+        fontsize = 8
+    ]
+
+    w_3_6 -> v_3_5 [
+        fontsize = 8
+    ]
+
+    j_3_7 -> k_2_7 [
+        fontsize = 8
+    ]
+
+    j_3_7 -> i_4_7 [
+        fontsize = 8
+    ]
+
+    a_4_0 -> a_3_0 [
+        fontsize = 8
+    ]
+
+    a_4_0 -> b_4_1 [
+        fontsize = 8
+    ]
+
+    b_4_1 -> c_3_1 [
+        fontsize = 8
+    ]
+
+    b_4_1 -> a_4_0 [
+        fontsize = 8
+    ]
+
+    d_4_2 -> c_3_2 [
+        fontsize = 8
+    ]
+
+    d_4_2 -> e_4_3 [
+        fontsize = 8
+    ]
+
+    u_3_4 -> t_3_3 [
+        fontsize = 8
+    ]
+
+    u_3_4 -> v_3_5 [
+        fontsize = 8
+    ]
+
+    v_3_5 -> u_3_4 [
+        fontsize = 8
+    ]
+
+    v_3_5 -> w_3_6 [
+        fontsize = 8
+    ]
+
+    i_4_7 -> j_3_7 [
+        fontsize = 8
+    ]
+
+    i_4_7 -> h_4_6 [
+        fontsize = 8
+    ]
+
+    e_4_3 -> d_4_2 [
+        fontsize = 8
+    ]
+
+    e_4_3 -> f_4_4 [
+        fontsize = 8
+    ]
+
+    f_4_4 -> e_4_3 [
+        fontsize = 8
+    ]
+
+    f_4_4 -> g_4_5 [
+        fontsize = 8
+    ]
+
+    g_4_5 -> f_4_4 [
+        fontsize = 8
+    ]
+
+    g_4_5 -> h_4_6 [
+        fontsize = 8
+    ]
+
+    h_4_6 -> g_4_5 [
+        fontsize = 8
+    ]
+
+    h_4_6 -> i_4_7 [
+        fontsize = 8
+    ]
+}
